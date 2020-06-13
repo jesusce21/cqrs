@@ -5,7 +5,7 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="cqrs",
-    version="0.0.1",
+    version="1.0.0",
     author="Jesusce",
     author_email="jesusctic@gmail.com",
     description="A small example package",
