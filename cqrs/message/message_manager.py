@@ -32,4 +32,4 @@ class MessageManager:
         handler_class_name: str = f"{message.__name__}Handler"
         handler: MessageHandle = getattr(__import__(handler_mod, fromlist=[
             handler_class_name]), handler_class_name)
-        return handler(handler_config)
+        return handler(**handler_config)
