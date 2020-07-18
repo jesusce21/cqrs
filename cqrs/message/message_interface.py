@@ -14,10 +14,3 @@ class MessageInterface(metaclass=ABCMeta):
         :return:
         """
         raise NotImplementedError
-
-    @abstractmethod
-    def assert_payload(self) -> None:
-        """
-        Allows to validate the payload
-        """
-        raise NotImplementedError
