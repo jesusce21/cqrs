@@ -11,7 +11,7 @@ class Message:
     def __init__(self, message_uuid: UUID, payload):
         self.uuid: UUID = message_uuid
         if hasattr(self, 'default_values'):
-            for k, v in getattr(self, 'default_values'):
+            for k, v in getattr(self, 'default_values').items():
                 setattr(self, k, v)
 
         if hasattr(self, '__slots__'):
