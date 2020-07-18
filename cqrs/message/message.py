@@ -18,7 +18,7 @@ class Message:
             for attr in getattr(self, '__slots__'):
                 value = payload.get(attr) if payload.get(attr) != None or not hasattr(self,
                                                                                       'default_values') else getattr(
-                    self, 'default_values')(attr)
+                    self, 'default_values').get(attr)
                 setattr(self, attr, value)
         getattr(self, 'assert_payload')()
 
