@@ -10,10 +10,13 @@ class Message:
 
     def __init__(self, message_uuid: UUID, payload):
         self.uuid: UUID = message_uuid
-        for k, v in getattr(self, 'default_values'):
-            setattr(self, k, v)
-        for attr in getattr(self, '__slots__'):
-            setattr(self, attr, payload.get(attr))
+        if hasattr(self, 'default_values'):
+            for k, v in getattr(self, 'default_values'):
+                setattr(self, k, v)
+
+        if hasattr(self, '__slots__'):
+            for attr in getattr(self, '__slots__'):
+                setattr(self, attr, payload.get(attr))
         getattr(self, 'assert_payload')()
 
     @property
@@ -68,6 +71,7 @@ class Message:
         return res
 
     def assert_payload(self) -> None:
-        for required_field in self.required_fields:
-            if not getattr(self, required_field):
-                raise BadRequest(required_field)
+        if hasattr(self, 'required_fields'):
+            for required_field in getattr(self, 'required_fields'):
+                if not getattr(self, required_field):
+                    raise BadRequest(required_field)
