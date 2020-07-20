@@ -143,6 +143,22 @@ async def list_examples(request):
                                     , handler_config=handler_config)
 ```
 
+
+`example_dal_controller.py`
+```python
+@set_connections("read_connection", "write_connection")
+class ExampleDalRepository(DalRepository):
+    def save(self, example: Example):
+        self.write_connection.execute(
+            f"INSERT INTO category(id, name) VALUES('{example.id}', '{example.name}');")
+
+    def by_id(self, example_id):
+        example = self.read_connection.execute(
+            f"SELECT * FROM category WHERE id = '{example_id}';").fetchone()
+        return example
+```
+
+set_connections
 # Workflow
 
 This is the flow of sending messages through the bus, a generic example has been explained, but one bus should be applied for queries and another for commands. Including this, the databases should be separated.
