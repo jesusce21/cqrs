@@ -5,5 +5,5 @@ class MessageAssertion(Exception):
         message_payload_var
     """
 
-    def __init__(self, message_payload_var):
+    def __init__(self, message_payload_var: str):
         self.message = f"The malformed variable: '{message_payload_var}'"

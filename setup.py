@@ -8,7 +8,7 @@ setuptools.setup(
     version="1.0.0",
     author="Jesusce",
     author_email="jesusctic@gmail.com",
-    description="A small example package",
+    description="Package to facilitate the implementation of CQRS in the project",
     long_description=long_description,
     long_description_content_type="text/markdown",
     packages=setuptools.find_packages(),

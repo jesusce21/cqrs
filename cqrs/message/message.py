@@ -8,7 +8,7 @@ class Message:
     Query/Command
     """
 
-    def __init__(self, message_uuid: UUID, payload):
+    def __init__(self, message_uuid: UUID, payload: dict):
         self.uuid: UUID = message_uuid
         if hasattr(self, 'default_values'):
             for k, v in getattr(self, 'default_values').items():

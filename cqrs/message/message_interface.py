@@ -3,7 +3,7 @@ from abc import ABCMeta, abstractmethod
 
 class MessageInterface(metaclass=ABCMeta):
     """
-    Query Interface
+    Message Interface
     """
 
     @property

@@ -3,9 +3,9 @@ from abc import abstractmethod
 from cqrs.message.message import Message
 
 
-class MessageHandle:
+class MessageHandler:
     """
-    Query/Command Handler
+    Message Handler
     """
 
     @abstractmethod

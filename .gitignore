@@ -3,3 +3,5 @@ venv/
 *.pyc
 dist/
 cqrs.egg*
+
+__pycache__
